@@ -1,23 +1,21 @@
-import java.util.Arrays;
-public class prob8{
+public class prob8 {
     public static void main(String[] args) {
-        int[][] a = {{1,2,3},
-                   {4,5,6},
-                   {7,8,9}
-    };
-        int[][] b = {{8,7,6},
-                     {5,4,3},
-                     {2,1,0}
+        int[][] arr ={{1,2},{3,4,5},{6,7}};
+        int maxResult = maxWealth(arr);
+        System.out.println(maxResult);
+    }
 
-        };
-        int [][] c = new int[3][3];
-
-        for(int row = 0; row < 3; row++){
-            for(int col = 0; col < 3; col++){
-                c[row][col] = a[row][col] + b[row][col];
-                System.out.println(c[row][col]);
+    static int maxWealth(int[][] arr){
+        int max = arr[0][0];
+        for(int row = 0; row < arr.length; row++){
+            int sum = 0;
+            for(int col = 0; col < arr[row].length; col++){
+                sum += arr[row][col];
+                if(sum > max){
+                    max = sum;
+                }
             }
         }
-
-}
+        return max;
+    }
 }
